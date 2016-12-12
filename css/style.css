@@ -1,0 +1,32 @@
+h1 {
+    color: #8bcaf7;
+    font-family: 'arial';
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+
+.tweetbox {
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px #000000 solid;
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+.tweetbox > textarea {
+    resize: none;
+    width: 750px;
+    height: 70px;
+    font-size: 100%;
+    border: 0px;
+    outline: none;
+}
+
+.tweetbox > p {
+    text-align: right;
+    font-family: 'arial';
+}
+
+.tweetbox > img {
+    border:1px #cccccc solid
+}
