@@ -14,7 +14,7 @@ app.on('ready', () => {
 	var ssPath;
 
 	tray = new Tray(__dirname + '/image/icon.png');
-    tray.window = new BrowserWindow({
+	tray.window = new BrowserWindow({
 		width:800,
 		height:700,
 		frame:false,
