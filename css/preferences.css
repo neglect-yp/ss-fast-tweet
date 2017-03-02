@@ -1,0 +1,26 @@
+body {
+    font-family: 'arial';
+    font-size: 10pt;
+}
+.select-dir-button {
+    color: black;  
+    font-size: 8pt;
+    background-color: white;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 1px solid #bfbfbf;
+    border-radius: 4px;
+}
+.select-dir-button:active {
+    background-color: #ececec;
+}
+.buttons {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+#sspath-text {
+    width: 80%;
+}

@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Preferences</title>
+
+  <link rel="stylesheet" href="css/preferences.css">
+</head>
+<body>
+  <p>Set your screenshot directory:</p>
+  <input type="text" id="sspath-text" readonly="readonly">
+  <label for="sspath" class="select-dir-button">Select</label>
+  <input type="file" id="sspath" style="display:none" webkitdirectory>
+  <br>
+  <hr>
+  <label><input type="checkbox" id="delete"><span style="color:red">Delete</span> a screenshot after tweet</label>
+
+  <br>
+  <div class="buttons">
+    <input type="button" id="apply-button" value="Apply">
+    <input type="button" id="cancel-button" value="Cancel">
+  </div>
+
+  <script src="js/preferences.js"></script>
+</body>
+

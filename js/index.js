@@ -1,25 +1,39 @@
 'use strict'
 
-const {ipcRenderer} = require('electron');
+const {ipcRenderer, remote} = require('electron');
+const {Menu, MenuItem} = remote;
 const $ = require('jQuery');
 
+// コンテキストメニュー
+const menu = new Menu();
+menu.append(new MenuItem({label: 'Preferences', click() { showPreferences(); }}));
+
+window.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  menu.popup(remote.getCurrentWindow());
+}, false);
+
+// htmlタグの要素を取得
 var ss;
-var counter;
-var tweettext;
 window.onload = () => {
 	ss = document.getElementById('screenshot');
-	counter = document.getElementById('counter');
-	tweettext = document.getElementById('tweettext');
+	var counter = document.getElementById('counter');
+	var tweettext = document.getElementById('tweettext');
+
+	// 文字数カウント
+	tweettext.addEventListener('keyup', () => {
+		var len = 140 - tweettext.value.length;
+		counter.innerHTML = len;
+		if (len < 0) {
+			counter.style.color = "red";
+		} else {
+			counter.style.color = "black";
+		}
+	});
 }
 
-function changeCounter(obj) {
-	var len = 140 - obj.value.length;
-	counter.innerHTML = len;
-	if (len < 0) {
-		counter.style.color = "red";
-	} else {
-		counter.style.color = "black";
-	}
+function showPreferences() {
+	ipcRenderer.send('show-preferences');
 }
 
 // 画面が表示されたら、スクリーンショットを最新のものに変更し、textareaにフォーカスする。
