@@ -11,10 +11,9 @@ let preferencesWindow = null;
 
 // ディレクトリ内の最新のスクリーンショットのパスをレンダラプロセスに送信
 function sendScreenShotPath(dirpath) {
-	var filepath;
-
-	var output = execSync(`ls -t ${dirpath} | head -n 1`).toString();
-	filepath = `${dirpath}/` + output.replace(/\n/g, '');
+	const output = execSync(`ls -t ${dirpath} | head -n 1`).toString();
+	const filepath = `${dirpath}/` + output.replace(/\n/g, '');
+	console.log(filepath);
 	tray.window.webContents.send('screenshot', filepath);
 
 	return filepath;
@@ -44,9 +43,9 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
-	var ssdirpath;
-	var isdelchecked;
-	var sspath;
+	let ssdirpath;
+	let isdelchecked;
+	let sspath;
 
 	// メインウィンドウの生成
 	tray = new Tray(`${__dirname}/image/icon.png`);
@@ -119,11 +118,11 @@ app.on('ready', () => {
 	});
 
 	ipcMain.on('set-config', (event, path, del) => {
-		sspath = path;
+		ssdirpath = path;
 		isdelchecked = del;
 		
 		// コンフィグをjsonファイルに保存
-		var json = {
+		const json = {
 			path: path,
 			del: del
 		};

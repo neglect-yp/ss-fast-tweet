@@ -14,15 +14,15 @@ window.addEventListener('contextmenu', (e) => {
 }, false);
 
 // htmlタグの要素を取得
-var ss;
+let ss;
 window.onload = () => {
 	ss = document.getElementById('screenshot');
-	var counter = document.getElementById('counter');
-	var tweettext = document.getElementById('tweettext');
+	const counter = document.getElementById('counter');
+	const tweettext = document.getElementById('tweettext');
 
 	// 文字数カウント
 	tweettext.addEventListener('keyup', () => {
-		var len = 140 - tweettext.value.length;
+		const len = 140 - tweettext.value.length;
 		counter.innerHTML = len;
 		if (len < 0) {
 			counter.style.color = "red";

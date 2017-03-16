@@ -4,14 +4,14 @@ const {ipcRenderer, remote} = require('electron');
 const $ = require('jQuery');
 
 function closeWindow() {
-	var win = remote.getCurrentWindow();
+	const win = remote.getCurrentWindow();
 	win.close();
 }
 
 window.onload = () => {
-	var sspath = document.getElementById('sspath');
-	var sspath_text = document.getElementById('sspath-text');
-	var del_checkbox = document.getElementById('delete');
+	const sspath = document.getElementById('sspath');
+	const sspath_text = document.getElementById('sspath-text');
+	const del_checkbox = document.getElementById('delete');
 
 	sspath.addEventListener('change', () => {
 		sspath_text.value = sspath.files[0].path;
